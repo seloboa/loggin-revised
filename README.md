@@ -21,3 +21,13 @@
 * you should only need one action creator which sets the user
   - a non logged in user should be an empty object
   - a logged in user should be the user returned by the server
+
+* if the user submits bad credentials logging in, display an error message.
+
+* hints
+  - you should only need to change code in the client folder
+  - the store should contain your three thunks
+  - the Main component should attempt the sessionLogin thunk when mounted
+  - the login component should attempt the login thunk when the submit button is clicked. You will need this to be a stateful component.
+  - the user-page component should call the logout thunk when the logout button is clicked
+  - you shouldn't need the history object as the routes are determined by the redux state.

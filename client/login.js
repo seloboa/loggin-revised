@@ -1,15 +1,14 @@
 import React from 'react'
 import {connect} from 'react-redux'
 
-const Login = (props) => {
-  const {handleSubmit} = props
+const Login = () => {
 
   return (
     <div className='h100 w100 flex column align-items-center justify-center'>
       <h1>Let's Loggin'!</h1>
       <div className='flex w50'>
         <img src='/loggin.png' />
-        <form className='grow1' onSubmit={handleSubmit}>
+        <form className='grow1'>
           <div className='flex column'>
             <div className='flex column m1'>
               <label htmlFor='email'>Email</label>
@@ -29,18 +28,9 @@ const Login = (props) => {
   )
 }
 
-const mapDispatchToProps = (dispatch, ownProps) => {
-  // Hey, check it out! Because we pass the connected Login to a Route
-  // (we do this in client/index.js), it receives the "route props"
-  // (match, location, and history) as its "own props".
-  const history = ownProps.history
-
+const mapDispatchToProps = (dispatch) => {
   return {
-    handleSubmit (evt) {
-      evt.preventDefault()
-      // your code here!
-    }
-  }
+  };
 }
 
 export default connect(null, mapDispatchToProps)(Login)
