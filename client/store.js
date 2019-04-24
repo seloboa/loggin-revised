@@ -24,21 +24,31 @@ export const login = user => {
   };
 };
 
-export const sessionLogin = ()=>{
-  return async dispatch =>{
-    try{
-      const user = await axios.get('/auth/').then(res=>res.data)
-
-    }catch(err){
-      console.log(err)
+export const sessionLogin = () => {
+  return async dispatch => {
+    try {
+      const user = await axios.get('/auth/').then(res => res.data);
+      dispatch(setUser(user));
+    } catch (err) {
+      console.log(err);
     }
-  }
-}
+  };
+};
 
+export const logout = () => {
+  return async dispatch => {
+    try {
+      await axios.delete('/auth/');
+      dispatch(setUser({}));
+    } catch (err) {
+      console.log(err);
+    }
+  };
+};
 const userReducer = (state = {}, action) => {
   switch (action.type) {
     case SET_USER:
-      return {...state, user: action.user};
+      return action.user;
     default:
       return state;
   }

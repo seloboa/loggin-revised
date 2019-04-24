@@ -13,24 +13,16 @@ import UserPage from './user-page';
 
 class _Main extends Component {
   constructor() {
-    super()
-    this.state = {}
+    super();
+    this.state = {};
   }
   componentDidMount() {
     const _sessionLogin = this.props.sessionLogin;
     _sessionLogin();
   }
 
-  componentDidUpdate(prevProps) {
-    if (prevProps.isLoggedIn !== this.props.isLoggedIn) {
-      const _sessionLogin = this.props.sessionLogin;
-      _sessionLogin();
-    }
-  }
-
   render() {
-    console.log('rendered')
-    console.log(this.props.isLoggedIn)
+    this.props.isLoggedIn;
     const {isLoggedIn} = this.props;
     return (
       <Switch>
