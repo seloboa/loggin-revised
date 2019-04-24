@@ -16,8 +16,8 @@ export const setUser = user => ({
 export const login = user => {
   return async dispatch => {
     try {
-      const user = await axios.post('/auth/').then(res => res.data);
-      dispatch(setUser(user));
+      const retUser = await axios.post('/auth/', user).then(res => res.data);
+      dispatch(setUser(retUser));
     } catch (err) {
       console.log(err);
     }

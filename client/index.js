@@ -12,12 +12,25 @@ import Login from './login';
 import UserPage from './user-page';
 
 class _Main extends Component {
+  constructor() {
+    super()
+    this.state = {}
+  }
   componentDidMount() {
-    const {sessionLogin} = this.props;
-    sessionLogin();
+    const _sessionLogin = this.props.sessionLogin;
+    _sessionLogin();
+  }
+
+  componentDidUpdate(prevProps) {
+    if (prevProps.isLoggedIn !== this.props.isLoggedIn) {
+      const _sessionLogin = this.props.sessionLogin;
+      _sessionLogin();
+    }
   }
 
   render() {
+    console.log('rendered')
+    console.log(this.props.isLoggedIn)
     const {isLoggedIn} = this.props;
     return (
       <Switch>
